@@ -97,3 +97,148 @@
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornal Online</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #2a2a2a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main-content {
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        .article {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .article h2 {
+            color: #333;
+        }
+
+        .article p {
+            line-height: 1.6;
+        }
+
+        .saiba-mais {
+            color: #1e90ff;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .full-article {
+            display: none;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 5px solid #1e90ff;
+        }
+
+        /* Estilo do pop-up de cookies */
+        .cookie-consent {
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        .cookie-consent button {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+
+        .cookie-consent button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Jornal Online</h1>
+        <p>Últimas notícias do dia</p>
+    </div>
+
+    <div class="main-content">
+        <div class="article">
+            <h2>Notícia de Hoje: Tecnologia em Alta</h2>
+            <p>O mercado de tecnologia está crescendo rapidamente. Novos dispositivos estão sendo lançados todos os dias, e as inovações não param de surpreender...</p>
+            <span class="saiba-mais" onclick="toggleArticle(1)">Saiba mais</span>
+            <div class="full-article" id="article-1">
+                <p>Nos últimos meses, grandes empresas de tecnologia têm mostrado novos produtos que podem mudar a maneira como interagimos com o mundo. De smartphones a dispositivos vestíveis, a inovação está em alta...</p>
+            </div>
+        </div>
+
+        <div class="article">
+            <h2>Saúde e Bem-Estar: A Nova Tendência</h2>
+            <p>A saúde mental se tornou um dos principais focos de discussão nos últimos tempos, com mais pessoas buscando maneiras de melhorar seu bem-estar...</p>
+            <span class="saiba-mais" onclick="toggleArticle(2)">Saiba mais</span>
+            <div class="full-article" id="article-2">
+                <p>Estudos indicam que a prática regular de meditação, exercícios físicos e uma alimentação balanceada são fundamentais para o bem-estar mental. Além disso, o estigma em torno da terapia está sendo quebrado...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up de aceitação de cookies -->
+    <div class="cookie-consent" id="cookieConsent">
+        <p>Este site utiliza cookies para melhorar sua experiência. Ao continuar, você concorda com nossa <a href="#" style="color: #ffeb3b;">Política de Privacidade</a>.</p>
+        <button onclick="acceptCookies()">Aceitar</button>
+    </div>
+
+    <script>
+        // Função para exibir/ocultar o conteúdo completo do artigo
+        function toggleArticle(id) {
+            var article = document.getElementById('article-' + id);
+            if (article.style.display === 'none' || article.style.display === '') {
+                article.style.display = 'block';
+            } else {
+                article.style.display = 'none';
+            }
+        }
+
+        // Função para esconder o pop-up de cookies quando aceito
+        function acceptCookies() {
+            document.getElementById('cookieConsent').style.display = 'none';
+        }
+
+        // Mostrar o pop-up de cookies assim que a página carregar
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('cookieConsent').style.display = 'block';
+            }, 1000); // Exibe após 1 segundo
+        };
+    </script>
+
+</body>
+</html>
